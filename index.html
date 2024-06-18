@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AR Video Example</title>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://rawgit.com/jeromeetienne/AR.js/master/aframe/build/aframe-ar.js"></script>
+</head>
+<body style="margin: 0; overflow: hidden;">
+
+<a-scene embedded arjs><!--embedded: Makes the scene fit within the webpage layout instead of taking over the full screen.
+    arjs: Enables AR.js, allowing the scene to recognize markers and incorporate AR functionalities.-->
+    <a-marker preset="hiro" id="video-marker">
+        <a-entity geometry="primitive: box; height: 1; width: 1; depth: 1" material="color: yellow;"></a-entity>
+    </a-marker>
+    <a-entity camera></a-entity>
+</a-scene>
+<script>
+    document.querySelector("#video-marker").addEventListener("markerFound", (e) => {
+        window.location.href = "video.html";
+    });
+</script>
+</body>
+</html>
